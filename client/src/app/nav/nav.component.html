@@ -22,9 +22,9 @@
             </li>
           </ul>
           <div class="dropdown" *ngIf="(accountService.currentUser$ | async) as user" dropdown>
-            <a class="dropdown-toggle text-light" dropdownToggle>Welcome {{user.userName | titlecase}}</a>
+            <a class="dropdown-toggle text-light" dropdownToggle>Welcome {{user.username | titlecase}}</a>
             <div class="dropdown-menu mt-3" *dropdownMenu>
-              <a href="" class="dropdown-item">Edit Profile</a>
+              <a href="" routerLink='/member/edit' class="dropdown-item">Edit Profile</a>
               <div class="dropdown-divider"></div>
               <a href="" class="dropdown-item" (click)="logout()">Logout</a>
             </div>
@@ -32,7 +32,7 @@
 
 
           <form #loginForm="ngForm" *ngIf="(accountService.currentUser$ | async) === null" class="form-inline mt-2 mt-md-0" (ngSubmit)="login()" autocomplete="off">
-            <input name="userName" [(ngModel)]="model.userName" class="form-control mr-sm-2" type="text" placeholder="Username">
+            <input name="userName" [(ngModel)]="model.username" class="form-control mr-sm-2" type="text" placeholder="Username">
             <input name="password"  [(ngModel)]="model.password" class="form-control mr-sm-2" type="password" placeholder="Password">
             <button class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
           </form>
